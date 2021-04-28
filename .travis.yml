@@ -8,14 +8,16 @@ matrix:
       before_script:
         - cd root-config/
       script:
+        - yarn install
         - yarn build
         - echo "Commit sha - $TRAVIS_COMMIT"
         - mkdir -p dist/@lee-aaron/root-config/$TRAVIS_COMMIT
         - mv dist/*.* dist/@lee-aaron/root-config/$TRAVIS_COMMIT
-    - stage: navbar:
+    - stage: navbar
       before_script:
         - cd navbar/
       script:
+        - yarn install
         - yarn build
         - echo "Commit sha - $TRAVIS_COMMIT"
         - mkdir -p dist/@lee-aaron/navbar/$TRAVIS_COMMIT
@@ -24,6 +26,7 @@ matrix:
       before_script:
         - cd home/
       script:
+        - yarn install
         - yarn build
         - echo "Commit sha - $TRAVIS_COMMIT"
         - mkdir -p dist/@lee-aaron/home/$TRAVIS_COMMIT
@@ -32,6 +35,7 @@ matrix:
       before_script:
         - cd projects/
       script:
+        - yarn install
         - yarn build
         - echo "Commit sha - $TRAVIS_COMMIT"
         - mkdir -p dist/@lee-aaron/projects/$TRAVIS_COMMIT
