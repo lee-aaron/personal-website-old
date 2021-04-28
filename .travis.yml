@@ -12,7 +12,7 @@ matrix:
         - echo "Commit sha - $TRAVIS_COMMIT"
         - mkdir -p dist/@lee-aaron/root-config/$TRAVIS_COMMIT
         - mv dist/*.* dist/@lee-aaron/root-config/$TRAVIS_COMMIT
-    - stage: navbar:
+    - stage: navbar
       before_script:
         - cd navbar/
       script:
