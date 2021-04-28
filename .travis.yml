@@ -4,34 +4,38 @@ node_js:
 matrix:
   fast_finish: true
   include:
-    before_script:
-      - cd root-config/
-    script:
-      - yarn build
-      - echo "Commit sha - $TRAVIS_COMMIT"
-      - mkdir -p dist/@lee-aaron/root-config/$TRAVIS_COMMIT
-      - mv dist/*.* dist/@lee-aaron/root-config/$TRAVIS_COMMIT
-    before_script:
-      - cd navbar/
-    script:
-      - yarn build
-      - echo "Commit sha - $TRAVIS_COMMIT"
-      - mkdir -p dist/@lee-aaron/navbar/$TRAVIS_COMMIT
-      - mv dist/*.* dist/@lee-aaron/navbar/$TRAVIS_COMMIT
-    before_script:
-      - cd home/
-    script:
-      - yarn build
-      - echo "Commit sha - $TRAVIS_COMMIT"
-      - mkdir -p dist/@lee-aaron/home/$TRAVIS_COMMIT
-      - mv dist/*.* dist/@lee-aaron/home/$TRAVIS_COMMIT
-    before_script:
-      - cd projects/
-    script:
-      - yarn build
-      - echo "Commit sha - $TRAVIS_COMMIT"
-      - mkdir -p dist/@lee-aaron/projects/$TRAVIS_COMMIT
-      - mv dist/*.* dist/@lee-aaron/projects/$TRAVIS_COMMIT
+    - env: root-config
+      before_script:
+        - cd root-config/
+      script:
+        - yarn build
+        - echo "Commit sha - $TRAVIS_COMMIT"
+        - mkdir -p dist/@lee-aaron/root-config/$TRAVIS_COMMIT
+        - mv dist/*.* dist/@lee-aaron/root-config/$TRAVIS_COMMIT
+    - env: navbar:
+      before_script:
+        - cd navbar/
+      script:
+        - yarn build
+        - echo "Commit sha - $TRAVIS_COMMIT"
+        - mkdir -p dist/@lee-aaron/navbar/$TRAVIS_COMMIT
+        - mv dist/*.* dist/@lee-aaron/navbar/$TRAVIS_COMMIT
+    - env: home
+      before_script:
+        - cd home/
+      script:
+        - yarn build
+        - echo "Commit sha - $TRAVIS_COMMIT"
+        - mkdir -p dist/@lee-aaron/home/$TRAVIS_COMMIT
+        - mv dist/*.* dist/@lee-aaron/home/$TRAVIS_COMMIT
+    - env: projects
+      before_script:
+        - cd projects/
+      script:
+        - yarn build
+        - echo "Commit sha - $TRAVIS_COMMIT"
+        - mkdir -p dist/@lee-aaron/projects/$TRAVIS_COMMIT
+        - mv dist/*.* dist/@lee-aaron/projects/$TRAVIS_COMMIT
 deploy:
   provider: s3
   access_key_id: "$AWS_ACCESS_KEY_ID"
