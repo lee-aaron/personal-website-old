@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - node
+script:
+  - yarn build
+  - echo "Commit sha - $TRAVIS_COMMIT"
+  - mkdir -p dist/@lee-aaron/root-config/$TRAVIS_COMMIT
+  - mv dist/*.* dist/@lee-aaron/root-config/$TRAVIS_COMMIT
+deploy:
+  provider: s3
+  access_key_id: "$AWS_ACCESS_KEY_ID"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+  bucket: "personal-website"
+  region: "us-west-2"
+  cache-control: "max-age=3156000"
+  acl: "public-read"
+  local_dir: dist
+  skip_cleanup: true
+  on:
+    branch: main
