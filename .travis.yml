@@ -4,7 +4,7 @@ node_js:
 matrix:
   fast_finish: true
   include:
-    - env: root-config
+    - stage: root-config
       before_script:
         - cd root-config/
       script:
@@ -12,7 +12,7 @@ matrix:
         - echo "Commit sha - $TRAVIS_COMMIT"
         - mkdir -p dist/@lee-aaron/root-config/$TRAVIS_COMMIT
         - mv dist/*.* dist/@lee-aaron/root-config/$TRAVIS_COMMIT
-    - env: navbar:
+    - stage: navbar:
       before_script:
         - cd navbar/
       script:
@@ -20,7 +20,7 @@ matrix:
         - echo "Commit sha - $TRAVIS_COMMIT"
         - mkdir -p dist/@lee-aaron/navbar/$TRAVIS_COMMIT
         - mv dist/*.* dist/@lee-aaron/navbar/$TRAVIS_COMMIT
-    - env: home
+    - stage: home
       before_script:
         - cd home/
       script:
@@ -28,7 +28,7 @@ matrix:
         - echo "Commit sha - $TRAVIS_COMMIT"
         - mkdir -p dist/@lee-aaron/home/$TRAVIS_COMMIT
         - mv dist/*.* dist/@lee-aaron/home/$TRAVIS_COMMIT
-    - env: projects
+    - stage: projects
       before_script:
         - cd projects/
       script:
