@@ -1,0 +1,46 @@
+language: node_js
+node_js:
+  - node
+matrix:
+  fast_finish: true
+  include:
+    before_script:
+      - cd root-config/
+    script:
+      - yarn build
+      - echo "Commit sha - $TRAVIS_COMMIT"
+      - mkdir -p dist/@lee-aaron/root-config/$TRAVIS_COMMIT
+      - mv dist/*.* dist/@lee-aaron/root-config/$TRAVIS_COMMIT
+    before_script:
+      - cd navbar/
+    script:
+      - yarn build
+      - echo "Commit sha - $TRAVIS_COMMIT"
+      - mkdir -p dist/@lee-aaron/navbar/$TRAVIS_COMMIT
+      - mv dist/*.* dist/@lee-aaron/navbar/$TRAVIS_COMMIT
+    before_script:
+      - cd home/
+    script:
+      - yarn build
+      - echo "Commit sha - $TRAVIS_COMMIT"
+      - mkdir -p dist/@lee-aaron/home/$TRAVIS_COMMIT
+      - mv dist/*.* dist/@lee-aaron/home/$TRAVIS_COMMIT
+    before_script:
+      - cd projects/
+    script:
+      - yarn build
+      - echo "Commit sha - $TRAVIS_COMMIT"
+      - mkdir -p dist/@lee-aaron/projects/$TRAVIS_COMMIT
+      - mv dist/*.* dist/@lee-aaron/projects/$TRAVIS_COMMIT
+deploy:
+  provider: s3
+  access_key_id: "$AWS_ACCESS_KEY_ID"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+  bucket: "lee-aaron-personal-website"
+  region: "us-west-1"
+  cache-control: "max-age=3156000"
+  acl: "public-read"
+  local_dir: dist
+  skip_cleanup: true
+  on:
+    branch: main
