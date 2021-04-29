@@ -1,9 +1,9 @@
 FROM node:15
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY dist/ ./
-COPY yarn.lock ./
+COPY . .
 
 RUN yarn install
-RUN yarn serve
+ENV NODE_ENV=production
+CMD ["yarn", "serve"]
