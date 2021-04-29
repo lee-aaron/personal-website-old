@@ -29,15 +29,6 @@
 
     More information about shared dependencies can be found at https://single-spa.js.org/docs/recommended-setup#sharing-with-import-maps.
   -->
-  <script type="systemjs-importmap">
-    {
-      "imports": {
-        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
-        "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
-        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js"
-      }
-    }
-  </script>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
   <!-- Add your organization's prod import map URL to this script's src  -->
@@ -47,6 +38,9 @@
   <script type="systemjs-importmap">
     {
       "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+        "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
         "@lee-aaron/root-config": "//localhost:9000/lee-aaron-root-config.js",
         "@lee-aaron/navbar": "//localhost:9001/lee-aaron-navbar.js",
         "@lee-aaron/home": "//localhost:9002/lee-aaron-home.js",
@@ -54,6 +48,8 @@
       }
     }
   </script>
+  <% } else { %>
+  <script type="systemjs-importmap" src="//lee-aaron-personal-website.s3-us-west-1.amazonaws.com/@lee-aaron/importmap.json"></script>
   <% } %>
 
   <!--

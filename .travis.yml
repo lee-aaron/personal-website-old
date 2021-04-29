@@ -11,8 +11,8 @@ matrix:
         - yarn install
         - yarn build
         - echo "Commit sha - $TRAVIS_COMMIT"
-        - mkdir -p dist/@lee-aaron/root-config/$TRAVIS_COMMIT
-        - mv dist/*.* dist/@lee-aaron/root-config/$TRAVIS_COMMIT
+        - mkdir -p dist/@lee-aaron/root-config/prod
+        - mv dist/*.* dist/@lee-aaron/root-config/prod
     - stage: navbar
       before_script:
         - cd navbar/
@@ -20,8 +20,8 @@ matrix:
         - yarn install
         - yarn build
         - echo "Commit sha - $TRAVIS_COMMIT"
-        - mkdir -p dist/@lee-aaron/navbar/$TRAVIS_COMMIT
-        - mv dist/*.* dist/@lee-aaron/navbar/$TRAVIS_COMMIT
+        - mkdir -p dist/@lee-aaron/navbar/prod
+        - mv dist/*.* dist/@lee-aaron/navbar/prod
     - stage: home
       before_script:
         - cd home/
@@ -29,8 +29,8 @@ matrix:
         - yarn install
         - yarn build
         - echo "Commit sha - $TRAVIS_COMMIT"
-        - mkdir -p dist/@lee-aaron/home/$TRAVIS_COMMIT
-        - mv dist/*.* dist/@lee-aaron/home/$TRAVIS_COMMIT
+        - mkdir -p dist/@lee-aaron/home/prod
+        - mv dist/*.* dist/@lee-aaron/home/prod
     - stage: projects
       before_script:
         - cd projects/
@@ -38,8 +38,8 @@ matrix:
         - yarn install
         - yarn build
         - echo "Commit sha - $TRAVIS_COMMIT"
-        - mkdir -p dist/@lee-aaron/projects/$TRAVIS_COMMIT
-        - mv dist/*.* dist/@lee-aaron/projects/$TRAVIS_COMMIT
+        - mkdir -p dist/@lee-aaron/projects/prod
+        - mv dist/*.* dist/@lee-aaron/projects/prod
 deploy:
   provider: s3
   access_key_id: "$AWS_ACCESS_KEY_ID"

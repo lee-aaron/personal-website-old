@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+    "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
+    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
+    "@lee-aaron/root-config": "https://lee-aaron-personal-website.s3-us-west-1.amazonaws.com/@lee-aaron/root-config/prod/lee-aaron-root-config.js",
+    "@lee-aaron/navbar": "https://lee-aaron-personal-website.s3-us-west-1.amazonaws.com/@lee-aaron/navbar/prod/lee-aaron-navbar.js",
+    "@lee-aaron/home": "https://lee-aaron-personal-website.s3-us-west-1.amazonaws.com/@lee-aaron/home/lee-aaron-home.js",
+    "@lee-aaron/projects": "https://lee-aaron-personal-website.s3-us-west-1.amazonaws.com/@lee-aaron/projects/lee-aaron-projects.js"
+  }
+}
