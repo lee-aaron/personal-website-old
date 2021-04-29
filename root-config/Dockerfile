@@ -1,9 +1,11 @@
 FROM node:15
 
-WORKDIR /app
+WORKDIR /usr/src/app
+
+COPY package.json ./
+RUN yarn install
 
 COPY . .
-
-RUN yarn install
+RUN yarn build
 ENV NODE_ENV=production
 CMD ["yarn", "serve"]
