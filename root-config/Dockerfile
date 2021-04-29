@@ -1,11 +1,11 @@
-FROM node:15
+FROM node:15 as builder
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package.json ./
+COPY package.json yarn.lock ./
 RUN yarn install
 
 COPY . .
-RUN yarn build
+RUN yarn run build
 ENV NODE_ENV=production
 CMD ["yarn", "serve"]

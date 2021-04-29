@@ -22,6 +22,7 @@ module.exports = (webpackConfigEnv, argv) => {
           isLocal: webpackConfigEnv && webpackConfigEnv.isLocal,
           orgName,
         },
+        favicon: "src/favicon.ico"
       }),
     ],
     module: {
@@ -33,6 +34,10 @@ module.exports = (webpackConfigEnv, argv) => {
             "css-loader",
             "sass-loader",
           ]
+        },
+        {
+          test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+          loader: 'file-loader'
         }
       ]
     }
