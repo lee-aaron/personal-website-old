@@ -1,0 +1,10 @@
+FROM node:15
+
+WORKDIR /app/navbar
+
+COPY package.json yarn.lock ./
+RUN yarn install
+
+COPY . .
+EXPOSE 9001
+CMD ["yarn", "start", "--port 9001"]

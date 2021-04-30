@@ -1,0 +1,10 @@
+FROM node:15
+
+WORKDIR /app/home
+
+COPY package.json yarn.lock ./
+RUN yarn install
+
+COPY . .
+EXPOSE 9002
+CMD ["yarn", "start", "--port 9002"]

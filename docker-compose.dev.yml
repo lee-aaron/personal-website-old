@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  root-config:
+    build: 
+      context: ./root-config
+      dockerfile: ./Dockerfile.dev
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./root-config:/app/root
+    command: yarn start
+    environment:
+      NODE_ENV: development
+  navbar:
+    build: 
+      context: ./navbar
+      dockerfile: Dockerfile.dev
+    ports:
+      - "9001:9001"
+    volumes:
+      - ./navbar:/app/navbar
+    command: yarn start --port 9001
+    environment:
+      - NODE_ENV=development
+  home:
+    build: 
+      context: ./home
+      dockerfile: Dockerfile.dev
+    ports:
+      - "9002:9002"
+    volumes:
+      - ./home:/app/home
+    command: yarn start --port 9002
+    environment:
+      - NODE_ENV=development
+  projects:
+    build: 
+      context: ./projects
+      dockerfile: Dockerfile.dev
+    ports:
+      - "9003:9003"
+    volumes:
+      - ./projects:/app/projects
+    command: yarn start --port 9003
+    environment:
+      - NODE_ENV=development

@@ -1,0 +1,10 @@
+FROM node:15
+
+WORKDIR /app/projects
+
+COPY package.json yarn.lock ./
+RUN yarn install
+
+COPY . .
+EXPOSE 9003
+CMD ["yarn", "start"]
