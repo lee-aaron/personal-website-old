@@ -1,5 +1,6 @@
 import React from "react";
 import "./Projects.scss";
+import FontAwesome from 'react-fontawesome';
 
 export default function Root(props) {
   return (
@@ -7,12 +8,13 @@ export default function Root(props) {
       <section className="intro">
         <p>
           Below are a list of projects I've had experience with. Some of them link to my GitHub and some are active projects where
-          you can play around with them! If you hover over them they should indicate a clickable link.
+          you can play around with them!
         </p>
       </section>
       <section className="description">
         <article>
           <h4>Personal Website</h4>
+          <a href="https://github.com/lee-aaron/personal-website" target="_blank"><FontAwesome size="2x" name={"fas fa-link"}/></a>
           <p>
             This personal website is powered by React in the front end! I'm currently looking into expanding the scalability of this
             website by applying the microfrontend concept. My goal is to allow a plug and play environment of different front end applications.
@@ -20,7 +22,8 @@ export default function Root(props) {
           </p>
         </article>
         <article>
-          <h4>chatty</h4>
+          <h4>Chat App</h4>
+          <a href="https://github.com/lee-aaron/chatty" target="_blank"><FontAwesome size="2x" name={"fas fa-link"}/></a>
           <p>
             I want to gain exposure to cloud infrastructure and engineering. This app is simply a chat room where you can interact with friends.
             I use React on the front end and have Kubernetes on the backend to host multiple services. I use Kafka for streaming messages and a Redis
@@ -44,6 +47,7 @@ export default function Root(props) {
         </article>
         <article>
           <h4>honyomi</h4>
+          <a href="https://github.com/lee-aaron/honyomi" target="_blank"><FontAwesome size="2x" name={"fas fa-link"}/></a>
           <p>
             This is a Manga reader app for iOS. I built this using React Native and Redux. There is an equivalent app for Android called
             Tachiyomi but manga readers for iOS don't have one due to being unable to load APKs. As I was developing, I found that the websites
@@ -76,6 +80,7 @@ export default function Root(props) {
         </article>
         <article>
           <h4>Anime Recommender</h4>
+          <a href="https://github.com/lee-aaron/otaku-recommender" target="_blank"><FontAwesome size="2x" name={"fas fa-link"}/></a>
           <p>
             I am also interested in machine learning so I had wanted to explore how to use machine learning to generate a recommendation to users
             based on previously watched shows. I used React in the front end and Flask with python in the back end. I also used Google Cloud Platform and 

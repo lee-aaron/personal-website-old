@@ -1,3 +1,5 @@
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome.scss';
 .projects {
 
   section {
@@ -7,6 +9,13 @@
     background: var(--article-background-color);
     padding: 15px;
     border-radius: 10px;
+  }
+
+  span.fa {
+    padding: 0;
+    position: relative;
+    float: right;
+    margin-top: -50px;
   }
 
   .description {

@@ -17,7 +17,7 @@ export default function Root(props) {
             <Link to="/projects">Projects</Link>
           </li>
           <li>
-            <Link to="/resume">Resume</Link>
+            <a href="https://lee-aaron.github.io/resume" target="_blank">Resume</a>
           </li>
         </ol>
       </nav>
