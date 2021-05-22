@@ -1,6 +1,7 @@
 const { merge } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-ts");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const RobotstxtpPlugin = require("robotstxt-webpack-plugin");
 
 module.exports = (webpackConfigEnv, argv) => {
   const orgName = "lee-aaron";
@@ -22,24 +23,23 @@ module.exports = (webpackConfigEnv, argv) => {
           isLocal: webpackConfigEnv && webpackConfigEnv.isLocal,
           orgName,
         },
-        favicon: "src/favicon.ico"
+        favicon: "src/favicon.ico",
+      }),
+      new RobotstxtpPlugin({
+        filePath: "src/robots.txt",
       }),
     ],
     module: {
       rules: [
         {
           test: /\.s[ac]ss$/i,
-          use: [
-            "style-loader",
-            "css-loader",
-            "sass-loader",
-          ]
+          use: ["style-loader", "css-loader", "sass-loader"],
         },
         {
           test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
-          loader: 'file-loader'
-        }
-      ]
-    }
+          loader: "file-loader",
+        },
+      ],
+    },
   });
 };
