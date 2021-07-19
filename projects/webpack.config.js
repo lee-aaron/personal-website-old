@@ -1,4 +1,4 @@
-const { merge }  = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-react-ts");
 
 module.exports = (webpackConfigEnv, argv) => {
@@ -15,19 +15,13 @@ module.exports = (webpackConfigEnv, argv) => {
       rules: [
         {
           test: /\.s[ac]ss$/i,
-          use: [
-            "style-loader",
-            "css-loader",
-            "sass-loader",
-          ]
+          use: ["style-loader", "css-loader", "sass-loader"],
         },
         {
-          test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-          use: [
-            'file-loader'
-          ]
-        }
-      ]
-    }
+          test: /.(pdf|ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+          use: ["file-loader"],
+        },
+      ],
+    },
   });
 };

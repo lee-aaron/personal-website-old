@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - 15
+if: branch = main
 jobs:
   fast_finish: true
   include:
