@@ -132,7 +132,7 @@ export default function Root(props: any) {
         <ul>
           <li>CSE 202 - Algorithm Design &amp; Analysis</li>
           <li>CSE 221 - Operating Systems</li>
-          <li>CSE 257 - Search and Optimization</li>
+          <li>CSE 234 - Data Systems for Machine Learning</li>
         </ul>
       </section>
     </main>
